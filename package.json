@@ -47,6 +47,7 @@
     "typescript": "3.9.3"
   },
   "dependencies": {
-    "@slack/bolt": "2.1.1"
+    "@slack/bolt": "2.1.1",
+    "@slack/types": "1.6.0"
   }
 }

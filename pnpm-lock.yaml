@@ -1,5 +1,6 @@
 dependencies:
   '@slack/bolt': 2.1.1
+  '@slack/types': 1.6.0
 devDependencies:
   '@types/node': 14.0.5
   '@typescript-eslint/eslint-plugin': 3.1.0_fa4e2df6e9ac885e67b231f839efeff8
@@ -2726,6 +2727,7 @@ packages:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 specifiers:
   '@slack/bolt': 2.1.1
+  '@slack/types': 1.6.0
   '@types/node': 14.0.5
   '@typescript-eslint/eslint-plugin': 3.1.0
   '@typescript-eslint/parser': 3.1.0
