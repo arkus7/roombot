@@ -16,7 +16,7 @@
   "plugins": [
     {
       "name": "typescript-eslint-plugin",
-      "configFile": "./.eslintrc.json"
+      "configFile": ".eslintrc.json"
     }
   ]
 }

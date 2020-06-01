@@ -1,4 +1,4 @@
-import { ActionHandler } from '.';
+import { ActionHandler } from '../types';
 import { channelLink, userLink } from '../utils/formatLinks';
 
 export const BUTTON_CLICK_ACTION_ID = 'button_click';
