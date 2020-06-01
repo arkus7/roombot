@@ -1,7 +1,7 @@
 import { App } from '@slack/bolt';
 
-import { hello } from './hello';
+import { helloHandler } from './hello.message';
 
-export function configureMessageListeners(app: App): void {
-  app.message('hello', hello);
+export function configureMessageHandlers(app: App): void {
+  app.message('hello', helloHandler);
 }

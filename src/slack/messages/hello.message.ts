@@ -1,8 +1,8 @@
-import { BUTTON_CLICK_ACTION_ID } from '../actions/buttonClick';
-import { MessageHandler } from '../types';
+import { BUTTON_CLICK_ACTION_ID } from '../actions/buttonClick.action';
 import { userLink } from '../utils/formatLinks';
+import { MessageHandler } from '../utils/types';
 
-export const hello: MessageHandler = async ({ message, say }) => {
+export const helloHandler: MessageHandler = async ({ message, say }) => {
   await say({
     blocks: [
       {
