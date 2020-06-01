@@ -1,6 +1,7 @@
 dependencies:
   '@slack/bolt': 2.1.1
   '@slack/types': 1.6.0
+  moment: 2.26.0
 devDependencies:
   '@types/node': 14.0.5
   '@typescript-eslint/eslint-plugin': 3.1.0_fa4e2df6e9ac885e67b231f839efeff8
@@ -1823,6 +1824,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+  /moment/2.26.0:
+    dev: false
+    resolution:
+      integrity: sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
   /ms/2.0.0:
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
@@ -2736,6 +2741,7 @@ specifiers:
   eslint-config-airbnb-typescript: 7.2.1
   eslint-config-airbnb-typescript-prettier: 2.1.1
   eslint-plugin-import: 2.20.2
+  moment: 2.26.0
   prettier: 1.19.1
   tsc-watch: 4.2.8
   typescript: 3.9.3

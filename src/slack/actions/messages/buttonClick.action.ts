@@ -1,4 +1,4 @@
-import { channelLink, userLink } from '../../utils/format';
+import { channelLink, userLink } from '../../utils/formatting';
 import { MessageActionHandler } from '../../utils/types';
 
 export const BUTTON_CLICK_ACTION_ID = 'button_click';
