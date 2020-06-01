@@ -1,11 +1,13 @@
 import { EventHandler } from '../utils/types';
 import { appHomeView } from '../views/appHome.view';
 
-export function appHomeOpenedHandler(): EventHandler<'app_home_opened'> {
+export const APP_HOME_OPENED_EVENT = 'app_home_opened';
+
+export function appHomeOpenedHandler(): EventHandler<typeof APP_HOME_OPENED_EVENT> {
   return async ({ event, context, client }) => {
     try {
       /* view.publish is the method that your app uses to push a view to the Home tab */
-      const result = await client.views.publish({
+      await client.views.publish({
   
         /* retrieves your xoxb token from context */
         token: context.botToken,
@@ -16,7 +18,6 @@ export function appHomeOpenedHandler(): EventHandler<'app_home_opened'> {
         /* the view payload that appears in the app home*/
         view: appHomeView()
       });
-      console.log('result', result);
     }
     catch (error) {
       console.error(error);

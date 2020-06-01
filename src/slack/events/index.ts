@@ -1,7 +1,7 @@
 import { App } from '@slack/bolt';
 
-import { appHomeOpenedHandler } from './appHomeOpened.event';
+import { APP_HOME_OPENED_EVENT, appHomeOpenedHandler } from './appHomeOpened.event';
 
 export function configureEvents(app: App): void {
-  app.event('app_home_opened', appHomeOpenedHandler());
+  app.event(APP_HOME_OPENED_EVENT, appHomeOpenedHandler());
 }
