@@ -17,7 +17,7 @@ export const blockQuote = (text: string): string => text.split('\n')
 export const inlineCode = (text: string): string => `\`${text}\``;
 export const codeBlock = (text: string): string => `\`\`\`${text}\`\`\``;
 
-export const unorderedList = (items: string[]): string => items.map(item => `- ${item}`).join('\n');
+export const unorderedList = (items: string[]): string => items.map(item => `• ${item}`).join('\n');
 export const orderedList = (items: string[]): string => items.map((item, index) => `${index + 1}. ${item}`).join('\n');
 
 export const link = (url: string, displayedText?: string): string => `<${url}|${displayedText ? displayedText : url}>`;
