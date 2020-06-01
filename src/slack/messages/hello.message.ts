@@ -1,5 +1,5 @@
-import { BUTTON_CLICK_ACTION_ID } from '../actions/buttonClick.action';
-import { userLink } from '../utils/formatLinks';
+import { BUTTON_CLICK_ACTION_ID } from '../actions/messages/buttonClick.action';
+import { userLink } from '../utils/format';
 import { MessageHandler } from '../utils/types';
 
 export const helloHandler: MessageHandler = async ({ message, say }) => {

@@ -1,5 +1,6 @@
 import { View } from '@slack/types';
 
+import { APP_HOME_BUTTON_CLICK_ACTION_ID } from '../actions/block/appHomeButtonClick.action';
 import { DIVIDER_BLOCK } from './blocks/divider.block';
 
 export function appHomeView(): View {
@@ -13,7 +14,7 @@ export function appHomeView(): View {
         type: 'section',
         text: {
           'type': 'mrkdwn',
-          'text': '*Welcome to your _App\'s Home_* :tada: :hehe:'
+          'text': '*Welcome to your _App\'s Home_* :tada:'
         }
       },
       DIVIDER_BLOCK,
@@ -29,6 +30,7 @@ export function appHomeView(): View {
         elements: [
           {
             type: 'button',
+            action_id: APP_HOME_BUTTON_CLICK_ACTION_ID,
             text: {
               type: 'plain_text',
               text: 'Click me!'
