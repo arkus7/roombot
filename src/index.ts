@@ -1,6 +1,8 @@
 import { App } from '@slack/bolt';
 import dotenv from 'dotenv';
 
+import { configureApp } from './app';
+
 dotenv.config();
 
 const app = new App({
@@ -8,36 +10,8 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
-
-app.message('hello', async ({ message, say }) => {
-  await say({
-    blocks: [
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `Hey there <@${message.user}>!`
-        },
-        accessory: {
-          type: "button",
-          text: {
-            type: "plain_text",
-            text: "Click Me"
-          },
-          action_id: "button_click"
-        }
-      }
-    ],
-    text: null,
-  });
-});
-
-app.action('button_click', async ({ body, ack, say }) => {
-  await ack();
-
-  await say(`<@${body.user.id}> clicked the button`);
-});
+configureApp(app);
 
 app.start(process.env.PORT || 3000)
   .catch(console.error)
-  .then(() => console.log('⚡️ Bolt app is running!'))
+  .then(() => console.log('⚡️ Bolt app is running!'));
