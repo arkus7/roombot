@@ -12,5 +12,11 @@
   ],
   "include": [
     "src/"
+  ],
+  "plugins": [
+    {
+      "name": "typescript-eslint-plugin",
+      "configFile": "./.eslintrc.json"
+    }
   ]
 }
