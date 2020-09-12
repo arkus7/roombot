@@ -1,4 +1,4 @@
-import { App } from '@slack/bolt';
+import { App, ExpressReceiver } from '@slack/bolt';
 import dotenv from 'dotenv';
 
 import { configureApp } from './app';
@@ -6,9 +6,13 @@ import { calendar } from './calendar';
 
 dotenv.config();
 
+const receiver = new ExpressReceiver({
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+});
+
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  receiver: receiver,
 });
 
 calendar.authorize()
@@ -17,7 +21,17 @@ calendar.authorize()
 
 configureApp(app);
 
+const PORT = process.env.PORT || 3000;
+
+receiver.app.get('/', (req, res) => {
+  const { code, state } = req.query;
+
+  console.log(code, state);
+
+  return res.json({ code, state: JSON.parse(state as string) });
+});
+
 app
-  .start(process.env.PORT || 3000)
+  .start(PORT)
   .catch(console.error)
-  .then(() => console.log('⚡️ Bolt app is running!'));
+  .then(() => console.log(`⚡️ Bolt app is running on ${PORT}!`));
