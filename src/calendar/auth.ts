@@ -3,13 +3,16 @@ import { google } from 'googleapis';
 import path from 'path';
 import readline from 'readline';
 
+type OAuth2Client = typeof google.auth.OAuth2.prototype;
+type OAuthCredentials = typeof google.auth.OAuth2.prototype.credentials;
+
 const TOKEN_PATH = path.join(__dirname, 'token.json');
 
 const SCOPES = [
   'https://www.googleapis.com/auth/calendar.readonly'
 ];
 
-export async function authorizeGoogle(): Promise<any> {
+export async function authorizeGoogle(): Promise<OAuth2Client> {
   const clientSecret = process.env.GOOGLE_OAUTH_CLIENT_SECRET;
   const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID;
   const redirectUri = process.env.GOOGLE_OAUTH_REDIRECT_URI;
@@ -20,22 +23,22 @@ export async function authorizeGoogle(): Promise<any> {
     redirectUri,
   });
 
-  let credentials: Record<string, unknown> = null;
+  let credentials: OAuthCredentials = null;
   try {
     credentials = await loadCredentials();
-  } catch(error) {
+  } catch (error) {
     console.error('Error while loading stored token: ', error, 'Getting a new one...');
     credentials = await getAccessToken(oAuthClient);
   }
   oAuthClient.setCredentials(credentials);
-  
+
   return oAuthClient;
 }
 
-function loadCredentials(): Promise<Record<string,unknown>> {
+function loadCredentials(): Promise<OAuthCredentials> {
   return new Promise((resolve, reject) => {
     fs.readFile(TOKEN_PATH, (err, tokenString) => {
-      if(err) {
+      if (err) {
         return reject(err);
       }
       return resolve(JSON.parse(tokenString.toString()));
@@ -43,10 +46,15 @@ function loadCredentials(): Promise<Record<string,unknown>> {
   });
 }
 
-function getAccessToken(oAuthClient: any): Promise<Record<string, unknown>> {
+function getAccessToken(oAuthClient: OAuth2Client): Promise<OAuthCredentials> {
   const authUrl = oAuthClient.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES,
+    prompt: 'consent',
+    state: JSON.stringify({
+      team: 'assd',
+      user: 'asdasdasd'
+    })
   });
   console.log('Authorize this app by visiting this url:', authUrl);
   const rl = readline.createInterface({
