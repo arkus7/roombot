@@ -1,6 +1,7 @@
 import { View } from '@slack/types';
 
 import { APP_HOME_BUTTON_CLICK_ACTION_ID } from '../actions/block/appHomeButtonClick.action';
+import { BOOK_ROOM_BUTTON_CLICK_ACTION_ID } from '../actions/block/bookRoomButtonClick.action';
 import { DIVIDER_BLOCK } from './blocks/divider.block';
 
 export function appHomeView(): View {
@@ -32,6 +33,14 @@ export function appHomeView(): View {
             text: {
               type: 'plain_text',
               text: 'Click me!'
+            }
+          },
+          {
+            type: 'button',
+            action_id: BOOK_ROOM_BUTTON_CLICK_ACTION_ID,
+            text: {
+              type: 'plain_text',
+              text: 'Book room modal (test)'
             }
           }
         ]
