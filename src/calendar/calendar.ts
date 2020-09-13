@@ -17,4 +17,17 @@ export class Calendar {
       calendarId: 'primary'
     });
   }
+
+  async freeBusy(options: { startDate: Date, endDate: Date }): GaxiosPromise<calendar_v3.Schema$FreeBusyResponse> {
+    return this.api.freebusy.query({
+      oauth_token: this.auth.credentials.access_token,
+      requestBody: {
+        timeMin: options.startDate.toISOString(),
+        timeMax: options.endDate.toISOString(),
+        items: [{
+          id: 'primary'
+        }]
+      }
+    });
+  }
 }

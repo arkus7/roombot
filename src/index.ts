@@ -2,6 +2,7 @@ import { App, ExpressReceiver, LogLevel } from '@slack/bolt';
 import dotenv from 'dotenv';
 
 import { configureApp } from './app';
+import { calendar } from './calendar';
 
 dotenv.config();
 
@@ -15,9 +16,9 @@ const app = new App({
   logLevel: LogLevel.DEBUG,
 });
 
-// calendar.authorize()
-// .then(() => calendar.listEvents())
-// .then((res) => console.log(res.data.items));
+calendar.authorize()
+  .then(() => calendar.freeBusy({ startDate: new Date(2020, 8, 10), endDate: new Date(2020, 8, 20) }))
+  .then((res) => console.log(res.data.calendars['primary']));
 
 configureApp(app);
 
