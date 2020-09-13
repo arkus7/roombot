@@ -3,8 +3,8 @@ import { google } from 'googleapis';
 import path from 'path';
 import readline from 'readline';
 
-type OAuth2Client = typeof google.auth.OAuth2.prototype;
-type OAuthCredentials = typeof google.auth.OAuth2.prototype.credentials;
+export type OAuth2Client = typeof google.auth.OAuth2.prototype;
+export type OAuthCredentials = typeof google.auth.OAuth2.prototype.credentials;
 
 const TOKEN_PATH = path.join(__dirname, 'token.json');
 
