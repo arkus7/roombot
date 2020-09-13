@@ -2,7 +2,6 @@ import { App, ExpressReceiver } from '@slack/bolt';
 import dotenv from 'dotenv';
 
 import { configureApp } from './app';
-import { calendar } from './calendar';
 
 dotenv.config();
 
@@ -15,9 +14,9 @@ const app = new App({
   receiver: receiver,
 });
 
-calendar.authorize()
-  .then(() => calendar.listEvents())
-  .then((res) => console.log(res.data.items));
+// calendar.authorize()
+// .then(() => calendar.listEvents())
+// .then((res) => console.log(res.data.items));
 
 configureApp(app);
 
