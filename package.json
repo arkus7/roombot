@@ -47,8 +47,8 @@
     "typescript": "3.9.3"
   },
   "dependencies": {
-    "@slack/bolt": "2.1.1",
-    "@slack/types": "1.6.0",
+    "@slack/bolt": "2.3.0",
+    "@slack/types": "1.8.0",
     "gaxios": "3.0.3",
     "googleapis": "52.1.0",
     "moment": "2.26.0"
