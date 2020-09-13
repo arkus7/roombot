@@ -1,4 +1,4 @@
-import { App, ExpressReceiver } from '@slack/bolt';
+import { App, ExpressReceiver, LogLevel } from '@slack/bolt';
 import dotenv from 'dotenv';
 
 import { configureApp } from './app';
@@ -12,6 +12,7 @@ const receiver = new ExpressReceiver({
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   receiver: receiver,
+  logLevel: LogLevel.DEBUG,
 });
 
 // calendar.authorize()
