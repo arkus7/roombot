@@ -51,6 +51,6 @@
     "@slack/types": "1.8.0",
     "gaxios": "3.0.3",
     "googleapis": "52.1.0",
-    "moment": "2.26.0"
+    "moment": "2.29.4"
   }
 }
